@@ -14,8 +14,10 @@ MAS smarthome {
 
     environment: example.Env(10)
 
-    agents: bob;
-            alice;
+    agents: biztonsagErzekelo;
+            veszelyErzekelo;
+            segito;
+
 
     aslSourcePath: "src/agt";
 }
