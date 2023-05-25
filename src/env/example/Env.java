@@ -27,7 +27,9 @@ public class Env extends Environment {
     public boolean executeAction(String agName, Structure action) {
         if(action.getFunctor().equals("gyujtas")){
             addPercept(Literal.parseLiteral("tuz"));
-        }else{
+        }else if (action.getFunctor().equals("gazszivargas")) {
+            addPercept(Literal.parseLiteral("oxigenhiany"));
+        } else {
             logger.info("executing: " + action + ", but not implemented!");
         }
         if (true) { // you may improve this condition

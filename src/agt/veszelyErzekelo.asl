@@ -13,3 +13,7 @@
 +tuz <- .send(biztonsagErzekelo,tell,tuz);
         .send(segito,tell,tuz);
         .print("Tuz van").
+
++oxigenhiany <- .send(biztonsagErzekelo,tell,oxigenhiany);
+                .send(segito,tell,oxigenhiany);
+                .print("Oxigenhiany van").
