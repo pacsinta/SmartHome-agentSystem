@@ -10,3 +10,6 @@ veszelyvan(0).
 /* Plans */
 
 +!start : true <- .print("hello world.").
+
++tuzvan(1)[source(veszelyErzekelo)] 
+    <- .print("OK").
