@@ -1,4 +1,5 @@
 // Environment code for project smarthome
+import java.lang.Math;
 
 import jason.asSyntax.*;
 import jason.environment.*;
@@ -15,6 +16,8 @@ public class Env extends Environment {
 
     private boolean jogosultsagokElfogadva = false;
     private boolean bejaratiajtoNyitva = false;
+
+    private boolean dirt = false;
 
     /** Called before the MAS execution with the args informed in .mas2j */
     @Override
