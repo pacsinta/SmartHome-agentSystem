@@ -13,6 +13,9 @@ public class Env extends Environment {
     private boolean tuzvan = false;
     private boolean oxigenhianyvan = false;
 
+    private boolean jogosultsagokElfogadva = false;
+    private boolean bejaratiajtoNyitva = false;
+
     /** Called before the MAS execution with the args informed in .mas2j */
     @Override
     public void init(String[] args) {
@@ -28,19 +31,19 @@ public class Env extends Environment {
     public boolean executeAction(String agName, Structure action) {
         clearPercepts();
 
-        if(action.getFunctor().equals("gyujtas")){
-            addPercept(Literal.parseLiteral("tuz"));
-        }else if (action.getFunctor().equals("gazszivargas")) {
-            addPercept(Literal.parseLiteral("oxigenhiany"));
-        } else if (action.getFunctor().equals("tuzvan(1)")) {
-            tuzvan = true;
-        } else {
-            logger.info("executing: " + action + ", but not implemented!");
+        switch(action.getFunctor()){
+            case "gyujtas" -> addPercept(Literal.parseLiteral("tuz"));
+            case "gazszivargas" -> addPercept(Literal.parseLiteral("oxigenhiany"));
+            case "tuzvan(1)" -> addPercept(Literal.parseLiteral("tuzvan(1)"));
+            default -> logger.info("executing: " + action + ", but not implemented!");
         }
 
-        if(tuzvan){
-            addPercept(Literal.parseLiteral("tuzvan(1)"));
+
+        if(jogosultsagokElfogadva){
+            bejaratiajtoNyitva = true;
         }
+
+
 
         if (true) { // you may improve this condition
              informAgsEnvironmentChanged();
