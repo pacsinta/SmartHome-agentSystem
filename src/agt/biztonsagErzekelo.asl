@@ -4,11 +4,7 @@
 
 /* Initial goals */
 
-!start.
-
 /* Plans */
-
-+!start : true <- .print("hello world.").
 
 +tuzvan(1)[source(veszelyErzekelo)] 
     <- .print("A ház kinyitása megkezdődik.");

@@ -28,30 +28,37 @@ public class Env extends Environment {
     @Override
     public boolean executeAction(String agName, Structure action) {
         clearPercepts();
-
+        double rnd = Math.random();
         switch(action.getFunctor()){
-            case "gyujtas" -> addPercept(Literal.parseLiteral("tuz"));
-            case "gazszivargas" -> addPercept(Literal.parseLiteral("oxigenhiany"));
-            case "tuzvan(1)" -> addPercept(Literal.parseLiteral("tuzvan(1)"));
-            case "mozgas" -> {
-                double rnd = Math.random();
-                    if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}
-                    else{addPercept(Literal.parseLiteral("azonositasFalse"));}
+            case "gyujtas" -> {
+                    addPercept(Literal.parseLiteral("tuz"));
+                    tuzvan=true;
                 }
+            case "gazszivargas" -> addPercept(Literal.parseLiteral("oxigenhiany"));
+            case "mozgas" -> {
+                if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}
+                else{addPercept(Literal.parseLiteral("azonositasFalse"));}
+            }
             case "ajtonyitas" -> {
                 addPercept(Literal.parseLiteral("ajtonyitas"));
                 ajtoNyitva = true;
             }
             case "ajtocsukas" -> {
-                    if(!tuzvan&&!oxigenhianyvan){
-                        addPercept(Literal.parseLiteral("ajtocsukas"));
-                        ajtoNyitva = false;
-                    }
+                if(!tuzvan&&!oxigenhianyvan){
+                    addPercept(Literal.parseLiteral("ajtocsukas"));
+                    ajtoNyitva = false;
                 }
-            case "uresahaz" -> addPercept(Literal.parseLiteral("uresahaz"));
+            }
+            case "elmultAVeszely" -> {
+                tuzvan=false;
+                oxigenhianyvan=false;
+            }
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
 
+        
+            
+        
 
 
         if (true) { // you may improve this condition
