@@ -1,12 +1,11 @@
 // Agent alice in project smarthome
 
 /* Initial beliefs and rules */
-szoba(1).
 !checkdirt.
 
 +!checkdirt : not tuzvan(1)[source(veszelyErzekelo)]
     <- .wait(1000);
-       if (math.random(1) > 0.7) {
+       if (math.random(1) > 0.85) {
         !clean;
        }else {
         !checkdirt;
@@ -24,3 +23,16 @@ szoba(1).
         .wait(5000);
         .print("A haz kiuritese sikeres!");
         .send(biztonsagErzekelo,tell,uresahaz).
+
++tuzoltok <- .print("Megjöttek a tűzoltók");
+                .send(biztonsagErzekelo,tell,ajtonyitas);
+                .send(veszelyErzekelo,tell,holatuz);
+                .send(self,tell,tuzoltokKiserese).
+
++tuzoltokKiserese <- .wait(3000);
+                        .print("A tűzoltók a tűzhöz lettek kísérve");
+                        .wait(5000);
+                        .print("A tűz oltása befejeződött");
+                        .wait(1000);
+                        .print("A tűzoltók kikísérve a házból");
+                        .send(veszelyErzekelo,tell,elmultAVeszely).
