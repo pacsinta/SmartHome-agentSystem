@@ -53,11 +53,7 @@ public class Env extends Environment {
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
 
-
-
-        if (true) { // you may improve this condition
-             informAgsEnvironmentChanged();
-        }
+        informAgsEnvironmentChanged();
         return true; // the action was executed with success
     }
 
