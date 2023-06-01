@@ -3,10 +3,12 @@
 /* Initial beliefs and rules */
 szoba(1).
 
-/* Initial goals */
-
-+tuzvan(1)[source(veszelyErzekelo)] 
-    <- .print("OK").
-
 +dirt 
     <- .print("Takarít.").
+
++tuzvan(1)[source(veszelyErzekelo)] <- 
+        .print("A haz kiuritese megkezdődött!");
+        .wait(5000);
+        .print("A haz kiuritese sikeres!");
+        .send(biztonsagErzekelo,tell,uresahaz).
+
