@@ -25,7 +25,13 @@ public class Env extends Environment {
 
     @Override
     public boolean executeAction(String agName, Structure action) {
-        logger.info("executing: "+action+", but not implemented!");
+        if(action.getFunctor().equals("gyujtas")){
+            addPercept(Literal.parseLiteral("tuz"));
+        }else if (action.getFunctor().equals("gazszivargas")) {
+            addPercept(Literal.parseLiteral("oxigenhiany"));
+        } else {
+            logger.info("executing: " + action + ", but not implemented!");
+        }
         if (true) { // you may improve this condition
              informAgsEnvironmentChanged();
         }
