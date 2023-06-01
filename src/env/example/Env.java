@@ -9,8 +9,7 @@ public class Env extends Environment {
 
     private Logger logger = Logger.getLogger("smarthome."+Env.class.getName());
 
-    private boolean tuzvan = false;
-    private boolean oxigenhianyvan = false;
+    private boolean veszelyvan = false;
 
     private boolean ajtoNyitva = false;
 
@@ -32,26 +31,27 @@ public class Env extends Environment {
         switch(action.getFunctor()){
             case "gyujtas" -> {
                     addPercept(Literal.parseLiteral("tuz"));
-                    tuzvan=true;
+                    veszelyvan=true;
                 }
             case "gazszivargas" -> addPercept(Literal.parseLiteral("oxigenhiany"));
             case "mozgas" -> {
-                if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}
-                else{addPercept(Literal.parseLiteral("azonositasFalse"));}
+                if(!veszelyvan){
+                    if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}
+                    else{addPercept(Literal.parseLiteral("azonositasFalse"));}
+                }
             }
             case "ajtonyitas" -> {
                 addPercept(Literal.parseLiteral("ajtonyitas"));
                 ajtoNyitva = true;
             }
             case "ajtocsukas" -> {
-                if(!tuzvan&&!oxigenhianyvan){
+                if(!veszelyvan){
                     addPercept(Literal.parseLiteral("ajtocsukas"));
                     ajtoNyitva = false;
                 }
             }
             case "elmultAVeszely" -> {
-                tuzvan=false;
-                oxigenhianyvan=false;
+                veszelyvan=false;
             }
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
