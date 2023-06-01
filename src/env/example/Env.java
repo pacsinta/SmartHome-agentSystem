@@ -1,5 +1,3 @@
-package example;
-
 // Environment code for project smarthome
 
 import jason.asSyntax.*;
