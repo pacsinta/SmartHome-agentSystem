@@ -12,7 +12,7 @@
 
 MAS smarthome {
 
-    environment: example.Env(10)
+    environment: Env(10)
 
     agents: biztonsagErzekelo;
             veszelyErzekelo;
