@@ -12,6 +12,8 @@ public class Env extends Environment {
     private boolean tuzvan = false;
     private boolean oxigenhianyvan = false;
 
+    private boolean ajtoNyitva = false;
+
     /** Called before the MAS execution with the args informed in .mas2j */
     @Override
     public void init(String[] args) {
@@ -36,12 +38,17 @@ public class Env extends Environment {
                     if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}
                     else{addPercept(Literal.parseLiteral("azonositasFalse"));}
                 }
-            case "ajtonyitas" -> addPercept(Literal.parseLiteral("ajtonyitas"));
+            case "ajtonyitas" -> {
+                addPercept(Literal.parseLiteral("ajtonyitas"));
+                ajtoNyitva = true;
+            }
             case "ajtocsukas" -> {
                     if(!tuzvan&&!oxigenhianyvan){
                         addPercept(Literal.parseLiteral("ajtocsukas"));
+                        ajtoNyitva = false;
                     }
                 }
+            case "uresahaz" -> addPercept(Literal.parseLiteral("uresahaz"));
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
 

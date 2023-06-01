@@ -10,9 +10,10 @@
 
 +!start : true <- .print("hello world.").
 
-+tuz <- .send(biztonsagErzekelo,tell,tuzvan(1));
-        .send(segito,tell,tuzvan(1));
-        .print("Tuz van").
++tuz <- .print("Tuz van");
+        .send(biztonsagErzekelo,tell,tuzvan(1));
+        .send(segito,tell,tuzvan(1)).
+        
 
 +oxigenhiany <- .send(biztonsagErzekelo,tell,oxigenhiany);
                 .send(segito,tell,oxigenhianyvan);
