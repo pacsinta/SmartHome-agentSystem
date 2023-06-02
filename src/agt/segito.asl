@@ -1,4 +1,5 @@
 // Agent alice in project smarthome
++tuzvan(0).
 
 /* Initial beliefs and rules */
 !checkdirt.
@@ -35,4 +36,6 @@
                         .print("A tűz oltása befejeződött");
                         .wait(1000);
                         .print("A tűzoltók kikísérve a házból");
-                        .send(veszelyErzekelo,tell,elmultAVeszely).
+                        -tuzvan(1)[source(veszelyErzekelo)];
+                        +tuzvan(0);
+                        .broadcast(tell,elmultAVeszely).

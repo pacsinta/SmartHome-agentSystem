@@ -3,6 +3,7 @@
 /* Initial beliefs and rules */
 
 /* Initial goals */
+!azonositas.
 
 /* Plans */
 
@@ -13,14 +14,20 @@
 +uresahaz[source(segito)] <-.print("A ház lezárása elkezdődött.");
                             .send(self,tell,ajtocsukas).
 
-+azonositasTrue <- .wait(3000);
++!azonositas : azonositasTrue <- .wait(3000);
                     .print("azonositas sikeres");
                     .send(biztonsagErzekelo,tell,ajtonyitas);
                     .wait(3000);
-                    .send(biztonsagErzekelo,tell,ajtocsukas).
+                    .send(biztonsagErzekelo,tell,ajtocsukas);
+                    -azonositasTrue[source(percept)];
+                    !azonositas.
 
-+azonositasFalse <- .wait(3000);
-                    .print("azonositas sikertelen").
++!azonositas : azonositasFalse <- .wait(3000);
+                    .print("azonositas sikertelen");
+                    -azonositasFalse[source(percept)];
+                    !azonositas.
+
++!azonositas : not azonositasTrue & not azonositasFalse <- !azonositas.
 
 +ajtonyitas <- .print("ajto kinyilt").
                  
