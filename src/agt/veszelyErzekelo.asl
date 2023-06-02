@@ -24,4 +24,4 @@
 
 +holatuz <- .print("Átküldtem a koordinátákat").
 
-+elmultAVeszely <- .print("Elmúlt a veszély, a család visszatérhet a házba!").
++elmultAVeszely <- .print("Elmúlt a veszély, a család visszatérhet a házba!");elmultAVeszely.

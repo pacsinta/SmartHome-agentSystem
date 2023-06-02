@@ -29,6 +29,8 @@
 
 +!azonositas : not azonositasTrue & not azonositasFalse <- !azonositas.
 
-+ajtonyitas <- .print("ajto kinyilt").
++elmultAVeszely <- -tuzvan(1)[source(veszelyErzekelo)];-uresahaz[source(segito)].
+
++ajtonyitas <- .print("ajto kinyilt");-ajtocsukas[source(self)].
                  
-+ajtocsukas <- .print("ajto becsukodott").
++ajtocsukas <- .print("ajto becsukodott");-ajtonyitas[source(segito),source(self)].

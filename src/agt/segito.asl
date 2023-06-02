@@ -36,6 +36,7 @@
                         .print("A tűz oltása befejeződött");
                         .wait(1000);
                         .print("A tűzoltók kikísérve a házból");
+                        .send(biztonsagErzekelo,tell,ajtocsukas);
                         -tuzvan(1)[source(veszelyErzekelo)];
                         +tuzvan(0);
                         .broadcast(tell,elmultAVeszely).
