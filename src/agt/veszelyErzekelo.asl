@@ -5,8 +5,7 @@
 /* Initial goals */
 
 +tuz <- .print("Tuz van");
-        .send(biztonsagErzekelo,tell,tuzvan(1));
-        .send(segito,tell,tuzvan(1));
+        .broadcast(tell,tuzvan(1));
         .send(self,tell,hatosagokErtesitese).
 
 +oxigenhiany <- .send(biztonsagErzekelo,tell,oxigenhiany);

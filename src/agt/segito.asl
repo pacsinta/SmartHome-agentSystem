@@ -24,7 +24,7 @@
         .print("A haz kiuritese sikeres!");
         .send(biztonsagErzekelo,tell,uresahaz).
 
-+tuzoltok <- .print("Megjöttek a tűzoltók");
++tuzoltok[source(veszelyErzekelo)] <- .print("Megjöttek a tűzoltók");
                 .send(biztonsagErzekelo,tell,ajtonyitas);
                 .send(veszelyErzekelo,tell,holatuz);
                 .send(self,tell,tuzoltokKiserese).
