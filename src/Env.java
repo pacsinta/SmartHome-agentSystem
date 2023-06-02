@@ -34,7 +34,6 @@ public class Env extends Environment {
                     addPercept(Literal.parseLiteral("tuz"));
                     veszelyvan=true;
                 }
-            case "gazszivargas" -> addPercept(Literal.parseLiteral("oxigenhiany"));
             case "mozgas" -> {
                 if(!veszelyvan){
                     if(rnd>0.5){addPercept(Literal.parseLiteral("azonositasTrue"));}

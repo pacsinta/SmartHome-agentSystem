@@ -8,10 +8,6 @@
         .broadcast(tell,tuzvan(1));
         .send(self,tell,hatosagokErtesitese).
 
-+oxigenhiany <- .send(biztonsagErzekelo,tell,oxigenhiany);
-                .send(segito,tell,oxigenhianyvan);
-                .print("Oxigenhiany van").
-
 +hatosagokErtesitese <- .print("Hatóságok értesítésének megkezdése!");
                         .wait(1000);
                         .send(self,tell,tuzoltosagHivasa);
