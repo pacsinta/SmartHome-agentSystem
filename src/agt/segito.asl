@@ -1,12 +1,22 @@
 // Agent alice in project smarthome
 
 /* Initial beliefs and rules */
+!checkdirt.
 
-/* Initial goals */
++!checkdirt : not tuzvan(1)[source(veszelyErzekelo)]
+    <- .wait(1000);
+       if (math.random(1) > 0.85) {
+        !clean;
+       }else {
+        !checkdirt;
+       }.
 
-!start.
++!checkdirt : tuzvan(1)[source(veszelyErzekelo)]
+    <- .wait(1000);
+       !checkdirt.
 
-/* Plans */
++!clean <- .print("Clean!"); !checkdirt.
+
 
 +tuzvan(1)[source(veszelyErzekelo)] <- 
         .print("A haz kiuritese megkezdődött!");

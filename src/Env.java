@@ -1,4 +1,5 @@
 // Environment code for project smarthome
+import java.lang.Math;
 
 import jason.asSyntax.*;
 import jason.environment.*;
@@ -56,14 +57,7 @@ public class Env extends Environment {
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
 
-        
-            
-        
-
-
-        if (true) { // you may improve this condition
-             informAgsEnvironmentChanged();
-        }
+        informAgsEnvironmentChanged();
         return true; // the action was executed with success
     }
 

@@ -4,10 +4,6 @@
 
 /* Initial goals */
 
-
-/* Plans */
-
-
 +tuz <- .print("Tuz van");
         .send(biztonsagErzekelo,tell,tuzvan(1));
         .send(segito,tell,tuzvan(1));
