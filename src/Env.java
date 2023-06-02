@@ -53,6 +53,11 @@ public class Env extends Environment {
             case "elmultAVeszely" -> {
                 veszelyvan=false;
             }
+            case "check" -> {
+                if(Math.random() > 0.85){
+                    addPercept(Literal.parseLiteral("dirt"));
+                }
+            }
             default -> logger.info("executing: " + action + ", but not implemented!");
         }
 

@@ -6,17 +6,21 @@
 
 +!checkdirt : not tuzvan(1)[source(veszelyErzekelo)]
     <- .wait(1000);
-       if (math.random(1) > 0.85) {
-        !clean;
-       }else {
-        !checkdirt;
-       }.
+       check;
+       !clean;
+       !checkdirt.
 
 +!checkdirt : tuzvan(1)[source(veszelyErzekelo)]
     <- .wait(1000);
        !checkdirt.
 
-+!clean <- .print("Clean!"); !checkdirt.
+
+
++!clean : dirt[source(percept)]
+    <- .print("Clean!");-dirt[source(percept)].
+
+
++!clean.
 
 
 +tuzvan(1)[source(veszelyErzekelo)] <- 
